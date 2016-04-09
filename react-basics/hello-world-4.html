@@ -14,10 +14,10 @@
     class HelloWorld extends React.Component {
       constructor () {
         super()
-        this.phrase = `for the fourth time!`
+        this.state = {phrase: `for the fourth time!`}
       }
       render () {
-        return (<h1>Hello, world {this.phrase}</h1>)
+        return (<h1>Hello, world {this.state.phrase}</h1>)
       }
     }
     var body = document.querySelector('body')
