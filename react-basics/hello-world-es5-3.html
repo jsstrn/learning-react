@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+    <script src="https://fb.me/react-15.0.1.min.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/babel">
+    var HelloWorld = React.createClass({
+      getInitialState: function () {
+        return {phrase: 'This is React in ES5 - Part 3'}
+      },
+      userIsTyping: function (event) {
+        var phrase = event.target.value !== '' ? event.target.value : 'This is React in ES5 - Part 3'
+        this.setState({phrase: phrase})
+      },
+      render: function () {
+        return (
+          <div>
+            <h1>{this.state.phrase}</h1>
+            <input onChange={this.userIsTyping}/>
+          </div>)
+      }
+    })
+    var body = document.querySelector('body')
+    ReactDOM.render(<HelloWorld />, body)
+  </script>
+</html>

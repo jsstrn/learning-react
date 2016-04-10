@@ -15,23 +15,23 @@
     class HelloWorld extends React.Component {
       constructor () {
         super()
-        this.state = {phrase: `for the fifth time!`}
+        this.state = {phrase: `This is React in ES6 - Part 2`}
       }
-
       userIsTyping (event) {
-        this.setState({phrase: event.target.value})
+        const phrase = event.target.value !== '' ? event.target.value : `This is React in ES6 - Part 2`
+        this.setState({phrase})
       }
 
       render () {
         return (
           <div>
-            <h1>Hello, world {this.state.phrase}</h1>
+            <h1>{this.state.phrase}</h1>
             <input onChange={this.userIsTyping.bind(this)}/>
           </div>
         )
       }
     }
-    var body = document.querySelector('body')
+    const body = document.querySelector('body')
     ReactDOM.render(<HelloWorld />, body)
   </script>
 </html>

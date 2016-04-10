@@ -15,13 +15,12 @@
     class HelloWorld extends React.Component {
       constructor () {
         super()
-        this.state = {phrase: `for the fourth time!`}
       }
       render () {
-        return (<h1>Hello, world {this.state.phrase}</h1>)
+        return (<h1>This is {this.props.phrase} - Part 1</h1>)
       }
     }
-    var body = document.querySelector('body')
-    ReactDOM.render(<HelloWorld />, body)
+    const body = document.querySelector('body')
+    ReactDOM.render(<HelloWorld phrase={`React in ES6`}/>, body)
   </script>
 </html>

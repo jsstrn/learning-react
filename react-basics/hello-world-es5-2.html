@@ -13,12 +13,11 @@
   </body>
   <script type="text/babel">
     var HelloWorld = React.createClass({
-      phrase: 'for the third time!',
       render: function () {
-        return (<h1>Hello, world {this.phrase}</h1>)
+        return (<h1>This is {this.props.phrase} - Part 2</h1>)
       }
     })
     var body = document.querySelector('body')
-    ReactDOM.render(<HelloWorld />, body)
+    ReactDOM.render(<HelloWorld phrase={'React in ES5'}/>, body)
   </script>
 </html>
