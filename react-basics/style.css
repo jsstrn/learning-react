@@ -1,7 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+
 body {
+  font-family: 'Permanent Marker', cursive;
+  color:#ffcc43;
+  background: #363f44;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+input {
+  width: 50vw;
+  padding: 15px;
+  background:#a8b0b6;
+  border:none;
+  border-radius: 3px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
 }
