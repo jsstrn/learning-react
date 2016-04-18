@@ -30,3 +30,7 @@ ReactDOM.render(
   document.getElementById('container')
 );
 ```
+
+## Reference
+
+- [React documentation](http://facebook.github.io/react/)
