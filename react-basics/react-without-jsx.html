@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+    <script src="https://fb.me/react-15.0.1.min.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.min.js"></script>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript">
+    var Parent = React.createClass({
+      getInitialState: function () {
+        return {
+          value: 'Nothing Here'
+        }
+      },
+      userIsTyping: function (event) {
+        console.log(event.target.value)
+        this.setState({value: event.target.value})
+      },
+      render: function () {
+        return (
+          React.createElement('div', {}, [
+            React.createElement(Child, {value: this.state.value}),
+            React.createElement('input', {type:'text', onChange:this.userIsTyping})
+          ])
+        )
+      }
+    })
+
+    var Child = React.createClass({
+      render: function () {
+        return React.createElement('h1', {}, this.props.value)
+      }
+    })
+
+    ReactDOM.render(
+      React.createElement(Parent),
+      document.querySelector('body')
+    )
+  </script>
+</html>

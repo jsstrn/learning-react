@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+    <script src="https://fb.me/react-15.0.1.min.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/babel">
+    var Parent = React.createClass({
+      getInitialState: function () {
+        return {
+          chicken: 'Nothing Here'
+        }
+      },
+      userIsTyping: function (event) {
+        console.log(event.target.value)
+        this.setState({chicken: event.target.value})
+      },
+      render: function () {
+        return (
+          <div>
+            <Child pineapple={this.state.chicken} name={'Jon'} />
+            <input type="text" onChange={this.userIsTyping}/>
+          </div>
+      )
+      }
+    })
+
+    var Child = React.createClass({
+      render: function () {
+        return (
+          <div>
+            <h1> { this.props.pineapple } </h1>
+          </div>
+        )
+      }
+    })
+
+    ReactDOM.render(
+      <Parent />,
+      document.querySelector('body')
+    )
+  </script>
+</html>
