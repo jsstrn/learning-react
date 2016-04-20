@@ -1,6 +1,9 @@
 /*globals React, ReactDOM*/
 
 const TableBody = React.createClass({
+  propTypes: {
+    products: React.PropTypes.array.isRequired
+  },
   render: function () {
     const row = []
     let previousCategory = null
@@ -18,6 +21,9 @@ const TableBody = React.createClass({
 })
 
 const TableCategoryRow = React.createClass({
+  propTypes: {
+    category: React.PropTypes.string.isRequired
+  },
   render: function () {
     return (
       <tr>
@@ -28,6 +34,10 @@ const TableCategoryRow = React.createClass({
 })
 
 const TableDataRow = React.createClass({
+  propTypes: {
+    name: React.PropTypes.string.isRequired,
+    price: React.PropTypes.number.isRequired
+  },
   render: function () {
     return (
       <tr>
@@ -39,6 +49,9 @@ const TableDataRow = React.createClass({
 })
 
 const Table = React.createClass({
+  propTypes: {
+    products: React.PropTypes.array.isRequired
+  },
   render: function () {
     return (
     <table>
@@ -54,15 +67,27 @@ const Table = React.createClass({
   }
 })
 
-const SearchBox = React.createClass({
-  userIsTyping: function () {
-
+const Search = React.createClass({
+  propTypes: {
+    products: React.PropTypes.array.isRequired
+  },
+  getInitialState: function () {
+    return {
+      products: this.props.products
+    }
+  },
+  userIsTyping: function (event) {
+    const regex = new RegExp('ball', 'gi')
+    const filteredProducts = this.props.products.filter((product) => {
+      return product.name.match(regex)
+    })
+    this.setState({products: filteredProducts})
   },
   render: function () {
     return (
     <div>
-      <input type='text' />
-      <Table products={this.props.products onChange={this.userIsTyping}} />
+      <input type='text' onChange={this.userIsTyping} />
+      <Table products={this.state.products} />
     </div>
     )
   }
@@ -90,4 +115,7 @@ const products = [
   }
 ]
 
-ReactDOM.render(<SearchBox products={products} />, document.querySelector('#app'))
+ReactDOM.render(
+  <Search products={products} />,
+  document.querySelector('#app')
+)
